@@ -1,7 +1,8 @@
 <?php
 
+use App\Notifications\TelegramNotification;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Notification;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+Notification::route('telegram',env('TELEGRAM_BOT_ID_INFO'))->notify(new TelegramNotification);
+Route::get('/', \App\Livewire\Welcome::class);
+
+
+
+
+
