@@ -11,6 +11,6 @@ class File extends Model
 
     public function comment()
     {
-        return $this->belongsTo(Comment::class);
+        return $this->hasOne(Comment::class);
     }
 }

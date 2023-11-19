@@ -13,9 +13,9 @@ class Comment extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function comments()
+    public function children()
     {
-        return $this->belongsToMany(Comment::class);
+        return $this->hasMany($this,'parent_id','id');
     }
 
     public function files()
