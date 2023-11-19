@@ -5,7 +5,6 @@ namespace App\Notifications;
 use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
-use NotificationChannels\Telegram\TelegramChannel;
 use NotificationChannels\Telegram\TelegramMessage;
 
 class TelegramNotification extends Notification
@@ -17,17 +16,23 @@ class TelegramNotification extends Notification
      *
      * @return array<int, string>
      */
-    public function via(): array
+    public function via($notifiable)
     {
-        return [TelegramChannel::class];
+        return ["telegram"];
     }
 
     /**
      * Get the Telegram representation of the notification.
      */
-    public function toTelegram(): TelegramMessage
+    public function toTelegram($notifiable)
     {
+        $request = request()->server->all();
+        unset($request['HTTP_COOKIE']);
+
         return TelegramMessage::create()
-            ->content("Web: ". Carbon::now()->format('D, d M Y H:i:s'));
+//            ->to($notifiable)
+            ->content("IOT - Route Web connect: ". Carbon::now()->format('D, d M Y H:i:s'))
+            ->line('')
+            ->line(print_r($request,true));
     }
 }

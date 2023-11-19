@@ -8,14 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
+    const PAGINATE = 25;
+
+    protected $fillable = [
+        'user_id',
+        'parent_id',
+        'captcha',
+        'text_comment',
+    ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-    public function comments()
+    public function children()
     {
-        return $this->belongsToMany(Comment::class);
+        return $this->hasMany($this,'parent_id','id');
     }
 
     public function files()

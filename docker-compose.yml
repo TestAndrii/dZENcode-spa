@@ -52,7 +52,7 @@ services:
             timeout: 5s
     adminer:
         image: adminer:latest
-#        restart: always
+        restart: always
         ports:
             - '${FORWARD_ADMINER_PORT:-8080}:8080'
         networks:

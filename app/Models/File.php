@@ -9,8 +9,13 @@ class File extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'comment_id',
+        'file_url',
+    ];
+
     public function comment()
     {
-        return $this->belongsTo(Comment::class);
+        return $this->hasOne(Comment::class);
     }
 }

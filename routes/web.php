@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Notification;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-Notification::route('telegram',env('TELEGRAM_BOT_ID_INFO'))->notify(new TelegramNotification);
+//Notification::route('telegram',env('TELEGRAM_CHAT_ID_INFO'))->notify(new TelegramNotification);
 Route::get('/', \App\Livewire\Welcome::class);
 
 
