@@ -1,5 +1,4 @@
 <div class="alert alert-success" style="margin-left: 50px;">
-    id = {{$item->id}}</br>
     <small class="float-right">{{$item->user->name}}</small>
     <span class="text-muted">{{$item->created_at}}</span>
 

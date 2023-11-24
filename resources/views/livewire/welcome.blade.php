@@ -27,7 +27,7 @@
         </div>
 
         <div class="ml-4 text-center text-sm text-gray-800 sm:text-right sm:ml-0">
-            Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+            Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }}) Livewire v3.2.1
         </div>
     </div>
 </div>
