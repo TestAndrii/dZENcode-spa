@@ -12,7 +12,7 @@
 
         @foreach($item->files as $file)
 
-        <a href="{{$file->file_url}}" data-lightbox="{{$file->file_url}}" data-title="My caption">
+        <a href="{{$file->file_url}}" data-lightbox="{{$file->file_url}}" data-title="image">
             <img src="{{$file->file_url}}" style="height: 50px">
         </a>
 
